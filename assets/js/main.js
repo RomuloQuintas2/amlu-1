@@ -207,4 +207,45 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll("video"); // Seleciona todos os vídeos
+
+    videos.forEach((video) => {
+        // Quando clicar no vídeo, ativar tela cheia e reproduzir
+        video.addEventListener("click", function () {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+
+            video.play();
+        });
+
+        // Quando sair do modo tela cheia, pausar o vídeo
+        document.addEventListener("fullscreenchange", () => {
+            if (!document.fullscreenElement) video.pause();
+        });
+
+        document.addEventListener("webkitfullscreenchange", () => {
+            if (!document.webkitFullscreenElement) video.pause();
+        });
+
+        document.addEventListener("mozfullscreenchange", () => {
+            if (!document.mozFullScreen) video.pause();
+        });
+
+        document.addEventListener("MSFullscreenChange", () => {
+            if (!document.msFullscreenElement) video.pause();
+        });
+    });
+});
+
+
+
+
 })();
