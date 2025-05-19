@@ -1476,6 +1476,42 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
+/* CSS */
+.portfolio-item {
+  position: relative;
+  width: 400px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.05);
+}
+
+.portfolio-item video {
+  width: 100%;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+ 
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.portfolio-item video.playing + .play-button {
+  display: none;
+}
+
+
+
 .portfolio .portfolio-filters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -1515,12 +1551,17 @@ section,
   }
 }
 
+
 .portfolio .portfolio-content {
   position: relative;
   overflow: hidden;
 }
 
 .portfolio .portfolio-content img {
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-content video {
   transition: 0.3s;
 }
 
@@ -1532,6 +1573,10 @@ section,
   transition: all ease-in-out 0.3s;
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
+}
+
+.portfolio .portfolio-content .portfolio-info video {
+  opacity: 0;
 }
 
 .portfolio .portfolio-content .portfolio-info h4 {

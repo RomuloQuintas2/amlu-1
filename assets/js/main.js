@@ -244,6 +244,22 @@
         });
     });
 });
+// JavaScript
+document.querySelectorAll('.portfolio-item').forEach(item => {
+  const video = item.querySelector('video');
+  const playBtn = item.querySelector('.play-button');
+
+  item.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      video.classList.add('playing');
+    } else {
+      video.pause();
+      video.classList.remove('playing');
+    }
+  });
+});
+
 
 
 
